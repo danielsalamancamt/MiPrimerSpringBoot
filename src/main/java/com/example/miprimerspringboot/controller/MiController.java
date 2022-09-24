@@ -10,7 +10,7 @@ public class MiController {
     @GetMapping("/{id}")
     public String saludarG43(@PathVariable("id")int grupo){
         if(grupo>43){
-            return "El Grupo no existe";
+            return "<h1>El Grupo no existe</h1> Revisa los grupos";
         }else{
             return "<h1>Hola G"+grupo+"</h1>";
         }
