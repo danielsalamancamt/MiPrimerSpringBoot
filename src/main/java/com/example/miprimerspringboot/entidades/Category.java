@@ -19,4 +19,35 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Library> libs;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Library> getLibs() {
+        return libs;
+    }
+
+    public void setLibs(List<Library> libs) {
+        this.libs = libs;
+    }
 }
