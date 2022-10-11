@@ -1,5 +1,7 @@
 package com.example.miprimerspringboot.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -14,8 +16,18 @@ public class Library implements Serializable {
     private String target;
     private Integer capacity;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="categoryId")
+    @JsonIgnoreProperties("libs")
     private Category category;
-    private List<Message>messages,
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "lib")
+    @JsonIgnoreProperties({"client","lib"})
+    private List<Message>messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "lib")
+    @JsonIgnoreProperties({"messages","lib"})
     private List<Reservation>reservations;
 
 }

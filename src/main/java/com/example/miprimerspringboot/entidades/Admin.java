@@ -1,9 +1,15 @@
 package com.example.miprimerspringboot.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table
-public class Admin {
+@Table(name="admin")
+public class Admin implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idAdmin;
+    private String name;
+    private String email;
+    private String password;
 }
