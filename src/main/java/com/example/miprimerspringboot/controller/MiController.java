@@ -1,10 +1,9 @@
 package com.example.miprimerspringboot.controller;
 
-import com.example.miprimerspringboot.dto.Student;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/MiController")
 public class MiController {
 
     @GetMapping("/{id}")
@@ -15,10 +14,5 @@ public class MiController {
             return "<h1>Hola G"+grupo+"</h1>";
         }
     }
-    @PostMapping("/save")
-    public Student saveStudent(@RequestBody Student student){
-        System.out.println(student.getId());
-        System.out.println(student.getName());
-        return student;
-    }
+
 }
