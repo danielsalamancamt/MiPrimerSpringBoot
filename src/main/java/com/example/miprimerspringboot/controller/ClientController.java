@@ -1,7 +1,6 @@
 package com.example.miprimerspringboot.controller;
 
 import com.example.miprimerspringboot.entidades.Client;
-import com.example.miprimerspringboot.repository.ClientRepository;
 import com.example.miprimerspringboot.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
