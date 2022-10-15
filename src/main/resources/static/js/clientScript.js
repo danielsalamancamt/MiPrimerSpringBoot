@@ -1,20 +1,26 @@
-let myURLClient='api/Client/all';
+let myURLClient='';
 
-$("document").ready(function (){
+/*$("document").ready(function (){
     getClients();
-});
+});*/
 
-function getClients(){
+function getAdmins(){
     $.ajax({
         url : 'api/Client/all',
         type : 'GET',
         dataType : 'json',
         success : function(clients) {
             let cs=clients;
+            console.log(cs);
             $("#clients").empty();
             for(let i=0;i<cs.length;i++){
-                let k=cs[i].idClient+" "+cs[i].name+" "+cs[i].email+" "+cs[i].age+" <button onclick='deleteClient("+cs[i].idClient+")'>Borrar</button>";
-                k+=" <button onclick='getDetailClient("+cs[i].idClient+")'>Actualizar</button><br>"
+                let k='<tr>'+
+                    '<td>'+cs[i].idClient+" "+'</td>'+
+                    '<td>'+cs[i].name+" "+'</td>'+
+                    '<td>'+cs[i].email+" "+'</td>'+
+                    '<td>'+cs[i].age+'</td>'+
+                    "<td><button class=\"btn btn-danger\" onclick='deleteClient("+cs[i].idClient+")'>Borrar</button</td>"+
+                    "<td><button class=\"btn btn-secondary\" onclick='getDetailClient("+cs[i].idClient+")'>Actualizar</button></td></tr>"
                 $("#clients").append(k);
             }
         },
@@ -29,12 +35,14 @@ function getClientInfo(){
     let nameClient=$("#nameClient").val();
     let emailClient=$("#emailClient").val();
     let ageClient=$("#ageClient").val();
+    let passwordClient=$("#passwordClient").val();
 
     let client={
         id:idClient,
         name:nameClient,
         email:emailClient,
-        age:ageClient
+        age:ageClient,
+        password:passwordClient
     };
     return client;
 }
@@ -44,6 +52,7 @@ function cleanInputs(){
     $("#nameClient").val("");
     $("#emailClient").val("");
     $("#ageClient").val("");
+    $("#passwordClient").val("");
 }
 
 function saveClient(){
@@ -113,10 +122,12 @@ function getDetailClient(idClient){
         dataType : 'json',
         success : function(clients) {
             let cs=clients;
-            $("#idClient").val(cs[0].idClient);
-            $("#nameClient").val(cs[0].name);
-            $("#emailClient").val(cs[0].email);
-            $("#ageClient").val(cs[0].age);
+            console.log(cs);
+            $("#idClient").val(cs.idClient);
+            $("#nameClient").val(cs.name);
+            $("#emailClient").val(cs.email);
+            $("#ageClient").val(cs.age);
+            $("#passwordClient").val(cs.password);
         },
         error : function(xhr, status) {
             alert('ha sucedido un problema');

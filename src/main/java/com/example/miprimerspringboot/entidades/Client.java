@@ -12,8 +12,11 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
+    @Column(nullable = false,length = 45)
     private String email;
+    @Column(nullable = false,length = 45)
     private String password;
+    @Column(nullable = false,length = 250)
     private String name;
     private Integer age;
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")

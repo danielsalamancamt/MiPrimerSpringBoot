@@ -12,9 +12,12 @@ public class Library implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false,length = 45)
     private String name;
+    @Column(nullable = false,length = 45)
     private String target;
     private Integer capacity;
+    @Column(nullable = false,length = 250)
     private String description;
 
     @ManyToOne

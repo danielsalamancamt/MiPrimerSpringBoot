@@ -9,54 +9,50 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/clientScript.js"></script>
+<script type="text/javascript" src="js/reservationScript.js"></script>
 <body>
     <div class="container">
-        <h1>Atministración de clientes</h1>
+        <h1>Atministración de Reservas</h1>
         <a href="index.html" class="btn btn-primary">HOME</a><br>
         <br><br>
         <div>
             <div class="form-group">
-                <label for="idClient"><strong>Id</strong></label><br>
-                <input type="number" id="idClient" placeholder="Id de Cliente">
+                <label for="idReservation"><strong>Id</strong></label><br>
+                <input type="number" id="idReservation" placeholder="Id de Reservación">
             </div>
             <div class="form-group">
-                <label for="nameClient"><strong>Nombre</strong></label><br>
-                <input type="text" id="nameClient" placeholder="Nombre de Cliente">
+                <label for="startDateReservation"><strong>Fecha Inicio</strong></label><br>
+                <input type="text" id="startDateReservation" placeholder="StartDate de Reservación">
             </div>
             <div class="form-group">
-                <label for="emailClient"><strong>Correo</strong></label><br>
-                <input type="text" id="emailClient" placeholder="Correo de Cliente">
+                <label for="devolutionDateReservation"><strong>Fecha Final</strong></label><br>
+                <input type="date" id="devolutionDateReservation" placeholder="DevolutionDate de Reservación">
             </div>
             <div class="form-group">
-                <label for="passwordClient"><strong>Contraseña</strong></label><br>
-                <input type="password" id="passwordClient" placeholder="Contraseña de Cliente">
-            </div>
-            <div class="form-group">
-                <label for="ageClient"><strong>Edad</strong></label><br>
-                <input type="number" id="ageClient" placeholder="Edad de Cliente">
+                <label for="statusReservation"><strong>Estado</strong></label><br>
+                <input type="text" id="statusReservation" placeholder="Status de Reservación">
             </div>
         </div>
         <br><br>
-        <button class="btn btn-info" onclick="getClients()">Leer Clientes</button>
-        <button class="btn btn-success" onclick="saveClient()">Guardar Cliente</button>
-        <button class="btn btn-secondary" onclick="updateClient()">Actualizar Cliente</button>
+        <button class="btn btn-info" onclick="getReservations()">Leer Reservación</button>
+        <button class="btn btn-success" onclick="saveReservation()">Guardar Reservación</button>
+        <button class="btn btn-secondary" onclick="updateReservation()">Actualizar Reservación</button>
         <br><br>
         <div class="row">
             <div class="col-md-9">
-                <h3>Lista de Clientes</h3>
+                <h3>Lista de Reservaciones</h3>
                 <table class="table table-condensed table-bordered table-hover">
                     <thead>
                     <tr class="info table-success">
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Edad</th>
+                        <th>StartDate</th>
+                        <th>DevolutionDate</th>
+                        <th>Status</th>
                         <th>Borrar Cliente</th>
                         <th>Actualizar Cliente</th>
                     </tr>
                     </thead>
-                    <tbody class="table-primary" id="clients">
+                    <tbody class="table-primary" id="reservations">
 
                     </tbody>
                 </table>

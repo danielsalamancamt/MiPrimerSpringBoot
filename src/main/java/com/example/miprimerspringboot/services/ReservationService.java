@@ -16,12 +16,8 @@ public class ReservationService {
     public List<Reservation> getAll(){return reservationRepository.getAll();}
 
     public Reservation save(Reservation c){
-        int i=reservationRepository.save(c).getIdReservation();
-        Optional<Reservation>swap=reservationRepository.getById(i);
-        swap.get().setStatus("created");
         return reservationRepository.save(c);
     }
-
     public Optional<Reservation> getById(int id){
         return reservationRepository.getById(id);
     }

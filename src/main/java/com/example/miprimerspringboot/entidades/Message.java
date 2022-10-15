@@ -11,6 +11,7 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
+    @Column(nullable = false,length = 250)
     private String messageText;
 
     @ManyToOne

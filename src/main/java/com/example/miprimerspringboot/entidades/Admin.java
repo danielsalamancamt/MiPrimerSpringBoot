@@ -9,8 +9,11 @@ public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
+    @Column(nullable = false,length = 250)
     private String name;
+    @Column(nullable = false,length = 45)
     private String email;
+    @Column(nullable = false,length = 45)
     private String password;
 
     public Integer getIdAdmin() {
