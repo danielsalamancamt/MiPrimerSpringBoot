@@ -4,7 +4,7 @@ let myURLClient='';
     getClients();
 });*/
 
-function getAdmins(){
+function getClients(){
     $.ajax({
         url : 'api/Client/all',
         type : 'GET',

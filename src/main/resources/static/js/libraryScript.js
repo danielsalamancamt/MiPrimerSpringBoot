@@ -1,8 +1,8 @@
 let myURLClient='';
 
-/*$("document").ready(function (){
-    getClients();
-});*/
+$("document").ready(function (){
+    paintCategorys();
+});
 
 function getLibrarys(){
     $.ajax({
@@ -19,6 +19,7 @@ function getLibrarys(){
                     '<td>'+cs[i].target+" "+'</td>'+
                     '<td>'+cs[i].capacity+'</td>'+
                     '<td>'+cs[i].description+'</td>'+
+                    '<td>'+cs[i].category.name+'</td>'+
                     "<td><button class=\"btn btn-danger\" onclick='deleteLibrary("+cs[i].id+")'>Borrar</button</td>"+
                     "<td><button class=\"btn btn-secondary\" onclick='getDetailLibrary("+cs[i].id+")'>Actualizar</button></td></tr>"
                 $("#librarys").append(k);
@@ -42,7 +43,10 @@ function getLibraryInfo(){
         name:nameLibrary,
         target:targetLibrary,
         capacity:capacityLibrary,
-        description:descriptionLibrary
+        description:descriptionLibrary,
+        category:{
+            id:$("#category option:selected").val()
+        }
     };
     return library;
 }

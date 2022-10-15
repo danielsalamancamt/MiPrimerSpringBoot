@@ -1,8 +1,29 @@
-let myURLClient='';
+let myURLCategory='';
 
 /*$("document").ready(function (){
     getClients();
 });*/
+
+function paintCategorys(){
+    $.ajax({
+        url : 'api/Category/all',
+        type : 'GET',
+        dataType : 'json',
+        success : function(categorys) {
+            let cs=categorys;
+            console.log(cs);
+            $("#category").empty();
+            for(let i=0;i<cs.length;i++){
+                let option="<option value='"+cs[i].id+"'>"+cs[i].name+"</option>";
+                $("#category").append(option);
+            }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
+
 
 function getCategorys(){
     $.ajax({
@@ -14,6 +35,7 @@ function getCategorys(){
             console.log(cs);
             $("#categorys").empty();
             for(let i=0;i<cs.length;i++){
+                let option="<option value='"+cs[i].id+"'>"+cs[i].name+"</option>";
                 let k='<tr>'+
                     '<td>'+cs[i].name+" "+'</td>'+
                     '<td>'+cs[i].description+" "+'</td>'+
@@ -72,7 +94,7 @@ function deleteCategory(idCategory){
     let data={id:idCategory};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : myURLCategory,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -93,7 +115,7 @@ function updateCategory(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : myURLCategory,
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

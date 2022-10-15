@@ -14,10 +14,12 @@ function getReservations(){
             console.log(cs);
             $("#reservations").empty();
             for(let i=0;i<cs.length;i++){
+                let dateStart=new Date(cs[i].startDate);
+                let dateDevolution=new Date(cs[i].devolutionDate);
                 let k='<tr>'+
                     '<td>'+cs[i].idReservation+" "+'</td>'+
-                    '<td>'+cs[i].startDate+" "+'</td>'+
-                    '<td>'+cs[i].devolutionDate+" "+'</td>'+
+                    '<td>'+dateStart.getFullYear()+"-"+parseInt(dateStart.getMonth()+1)+"-"+dateStart.getUTCDate()+" "+'</td>'+
+                    '<td>'+dateDevolution.getFullYear()+"-"+parseInt(dateDevolution.getMonth()+1)+"-"+dateDevolution.getUTCDate()+'</td>'+
                     '<td>'+cs[i].status+'</td>'+
                     "<td><button class=\"btn btn-danger\" onclick='deleteReservation("+cs[i].idReservation+")'>Borrar</button</td>"+
                     "<td><button class=\"btn btn-secondary\" onclick='getDetailReservation("+cs[i].idReservation+")'>Actualizar</button></td></tr>"
@@ -119,10 +121,12 @@ function getDetailReservation(idReservation){
         dataType : 'json',
         success : function(reservations) {
             let cs=reservations;
+            let dateStart=new Date(cs.startDate);
+            let dateDevolution=new Date(cs.devolutionDate);
             console.log(cs);
             $("#idReservation").val(cs.idReservation);
-            $("#startDateReservation").val(cs.startDate);
-            $("#devolutionDateReservation").val(cs.devolutionDate);
+            $("#startDateReservation").val(dateStart.getFullYear()+"-"+parseInt(dateStart.getMonth()+1)+"-"+dateStart.getUTCDate());
+            $("#devolutionDateReservation").val(dateDevolution.getFullYear()+"-"+parseInt(dateDevolution.getMonth()+1)+"-"+dateDevolution.getUTCDate());
             $("#statusReservation").val(cs.status);
         },
         error : function(xhr, status) {
