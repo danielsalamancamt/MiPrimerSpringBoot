@@ -10,6 +10,8 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/messageScript.js"></script>
+<script type="text/javascript" src="js/libraryScript.js"></script>
+<script type="text/javascript" src="js/clientScript.js"></script>
 <body>
     <div class="container">
         <h1>Atministración de Mensajes</h1>
@@ -23,6 +25,18 @@
             <div class="form-group">
                 <label for="messageText"><strong>Mensaje</strong></label><br>
                 <input type="text" id="messageText" placeholder="Text de Mensaje">
+            </div>
+            <div class="form-group">
+                <label for="library"><strong>Seleccione Cubículo</strong></label><br>
+                <select id="library">
+                    <option value="1" selected>Cubículo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="client"><strong>Seleccione Cliente</strong></label><br>
+                <select id="client">
+                    <option value="1" selected>Cliente</option>
+                </select>
             </div>
         </div>
         <br><br>
@@ -38,6 +52,8 @@
                     <tr class="info table-success">
                         <th>Id</th>
                         <th>Mensaje</th>
+                        <th>Cubículo</th>
+                        <th>Cliente</th>
                         <th>Borrar Mensaje</th>
                         <th>Actualizar Mensaje</th>
                     </tr>

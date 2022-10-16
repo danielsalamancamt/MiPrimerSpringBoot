@@ -1,8 +1,30 @@
-let myURLClient='';
 
-/*$("document").ready(function (){
-    getClients();
-});*/
+$("document").ready(function (){
+    paintClients();
+});
+$("document").ready(function (){
+    paintLibrarys();
+});
+
+function paintReservations(){
+    $.ajax({
+        url : 'api/Reservation/all',
+        type : 'GET',
+        dataType : 'json',
+        success : function(reservations) {
+            let cs=reservations;
+            console.log(cs);
+            $("#reservation").empty();
+            for(let i=0;i<cs.length;i++){
+                let option="<option value='"+cs[i].idReservation+"'>"+cs[i].idReservation+"</option>";
+                $("#reservation").append(option);
+            }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
 
 function getReservations(){
     $.ajax({
@@ -21,6 +43,8 @@ function getReservations(){
                     '<td>'+dateStart.getFullYear()+"-"+parseInt(dateStart.getMonth()+1)+"-"+dateStart.getUTCDate()+" "+'</td>'+
                     '<td>'+dateDevolution.getFullYear()+"-"+parseInt(dateDevolution.getMonth()+1)+"-"+dateDevolution.getUTCDate()+'</td>'+
                     '<td>'+cs[i].status+'</td>'+
+                    '<td>'+cs[i].lib.name+'</td>'+
+                    '<td>'+cs[i].client.name+'</td>'+
                     "<td><button class=\"btn btn-danger\" onclick='deleteReservation("+cs[i].idReservation+")'>Borrar</button</td>"+
                     "<td><button class=\"btn btn-secondary\" onclick='getDetailReservation("+cs[i].idReservation+")'>Actualizar</button></td></tr>"
                 $("#reservations").append(k);
@@ -43,6 +67,12 @@ function getReservationInfo(){
         startDate:startDateReservation,
         devolutionDate:devolutionDateReservation,
         status:statusReservation,
+        lib:{
+            id:$("#library option:selected").val()
+        },
+        client:{
+            idClient:$("#client option:selected").val()
+        }
     };
     return reservation;
 }
@@ -79,7 +109,7 @@ function deleteReservation(idReservation){
     let data={id:idReservation};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -100,7 +130,7 @@ function updateReservation(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

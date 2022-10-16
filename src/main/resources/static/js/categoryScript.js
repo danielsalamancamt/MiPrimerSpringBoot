@@ -1,10 +1,9 @@
-let myURLCategory='';
 
 /*$("document").ready(function (){
-    getClients();
+    paintLibrarys();
 });*/
 
-function paintCategorys(){
+function paintCategory(){
     $.ajax({
         url : 'api/Category/all',
         type : 'GET',
@@ -35,7 +34,6 @@ function getCategorys(){
             console.log(cs);
             $("#categorys").empty();
             for(let i=0;i<cs.length;i++){
-                let option="<option value='"+cs[i].id+"'>"+cs[i].name+"</option>";
                 let k='<tr>'+
                     '<td>'+cs[i].name+" "+'</td>'+
                     '<td>'+cs[i].description+" "+'</td>'+
@@ -94,7 +92,7 @@ function deleteCategory(idCategory){
     let data={id:idCategory};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLCategory,
+        url : "",
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -115,7 +113,7 @@ function updateCategory(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLCategory,
+        url : "",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

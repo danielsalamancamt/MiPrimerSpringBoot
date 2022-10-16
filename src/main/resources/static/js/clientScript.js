@@ -1,8 +1,27 @@
-let myURLClient='';
 
 /*$("document").ready(function (){
     getClients();
 });*/
+
+function paintClients(){
+    $.ajax({
+        url : 'api/Client/all',
+        type : 'GET',
+        dataType : 'json',
+        success : function(clients) {
+            let cs=clients;
+            console.log(cs);
+            $("#client").empty();
+            for(let i=0;i<cs.length;i++){
+                let options="<option value='"+cs[i].idClient+"'>"+cs[i].name+"</option>";
+                $("#client").append(options);
+            }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
 
 function getClients(){
     $.ajax({
@@ -80,7 +99,7 @@ function deleteClient(idClient){
     let data={id:idClient};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -101,7 +120,7 @@ function updateClient(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

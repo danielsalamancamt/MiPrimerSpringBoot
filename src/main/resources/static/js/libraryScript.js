@@ -1,8 +1,27 @@
-let myURLClient='';
 
-$("document").ready(function (){
-    paintCategorys();
+$(document).ready(function (){
+    paintCategory();
 });
+
+function paintLibrarys(){
+    $.ajax({
+        url : 'api/Lib/all',
+        type : 'GET',
+        dataType : 'json',
+        success : function(librarys) {
+            let cs=librarys;
+            console.log(cs);
+            $("#library").empty();
+            for(let i=0;i<cs.length;i++){
+                let option="<option value='"+cs[i].id+"'>"+cs[i].name+"</option>";
+                $("#library").append(option);
+            }
+        },
+        error : function(xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
 
 function getLibrarys(){
     $.ajax({
@@ -84,7 +103,7 @@ function deleteLibrary(idLibrary){
     let data={id:idLibrary};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -105,7 +124,7 @@ function updateLibrary(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : "",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

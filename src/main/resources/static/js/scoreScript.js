@@ -1,8 +1,8 @@
 let myURLClient='';
 
-/*$("document").ready(function (){
-    getClients();
-});*/
+$("document").ready(function (){
+    paintReservations();
+});
 
 function getScores(){
     $.ajax({
@@ -18,6 +18,7 @@ function getScores(){
                     '<td>'+cs[i].idScore+" "+'</td>'+
                     '<td>'+cs[i].score+" "+'</td>'+
                     '<td>'+cs[i].messageText+" "+'</td>'+
+                    '<td>'+cs[i].reservation.idReservation+" "+'</td>'+
                     "<td><button class=\"btn btn-danger\" onclick='deleteScore("+cs[i].idScore+")'>Borrar</button</td>"+
                     "<td><button class=\"btn btn-secondary\" onclick='getDetailScore("+cs[i].idScore+")'>Actualizar</button></td></tr>"
                 $("#scores").append(k);
@@ -38,6 +39,9 @@ function getScoreInfo(){
         id:idScore,
         score:scoreScore,
         messageText:messageTextScore,
+        reservation:{
+            idReservation:$("#reservation option:selected").val()
+        }
     };
     return score;
 }

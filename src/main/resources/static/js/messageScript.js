@@ -1,8 +1,9 @@
 let myURLClient='';
 
-/*$("document").ready(function (){
-    getClients();
-});*/
+$("document").ready(function (){
+    paintLibrarys();
+    paintClients();
+});
 
 function getMessages(){
     $.ajax({
@@ -17,6 +18,8 @@ function getMessages(){
                 let k='<tr>'+
                     '<td>'+cs[i].idMessage+" "+'</td>'+
                     '<td>'+cs[i].messageText+" "+'</td>'+
+                    '<td>'+cs[i].lib.name+" "+'</td>'+
+                    '<td>'+cs[i].client.name+" "+'</td>'+
                     "<td><button class=\"btn btn-danger\" onclick='deleteMessage("+cs[i].idMessage+")'>Borrar</button</td>"+
                     "<td><button class=\"btn btn-secondary\" onclick='getDetailMessage("+cs[i].idMessage+")'>Actualizar</button></td></tr>"
                 $("#messages").append(k);
@@ -35,6 +38,12 @@ function getMessageInfo(){
     let client={
         idMessage:idMessage,
         messageText:messageText,
+        lib:{
+            id:$("#library option:selected").val()
+        },
+        client:{
+            idClient:$("#client option:selected").val()
+        }
     };
     return client;
 }
