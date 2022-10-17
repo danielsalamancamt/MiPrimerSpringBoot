@@ -11,34 +11,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/libraryScript.js"></script>
 <script type="text/javascript" src="js/categoryScript.js"></script>
-<body>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<body id="libraryFond">
     <div class="container">
-        <h1>Atministración de Cubículos</h1>
+        <div id="libraryTitle1"><h1>Atministración de Cubículos</h1></div>
         <a href="index.html" class="btn btn-primary">HOME</a><br>
         <br><br>
         <div>
             <div class="form-group">
-                <label for="idLibrary"><strong>Id</strong></label><br>
+                <label id="libraryId" for="idLibrary"><strong>Id</strong></label><br>
                 <input type="number" id="idLibrary" placeholder="Id de Library">
             </div>
             <div class="form-group">
-                <label for="nameLibrary"><strong>Nombre</strong></label><br>
+                <label id="libraryName" for="nameLibrary"><strong>Nombre</strong></label><br>
                 <input type="text" id="nameLibrary" placeholder="Nombre de Library">
             </div>
             <div class="form-group">
-                <label for="targetLibrary"><strong>Target</strong></label><br>
+                <label id="libraryTarget" for="targetLibrary"><strong>Target</strong></label><br>
                 <input type="text" id="targetLibrary" placeholder="Target de Library">
             </div>
             <div class="form-group">
-                <label for="capacityLibrary"><strong>Capacity</strong></label><br>
+                <label id="libraryCapacity" for="capacityLibrary"><strong>Capacity</strong></label><br>
                 <input type="number" id="capacityLibrary" placeholder="Capacity de Library">
             </div>
             <div class="form-group">
-                <label for="descriptionLibrary"><strong>Description</strong></label><br>
+                <label id="libraryDescription" for="descriptionLibrary"><strong>Description</strong></label><br>
                 <input type="text" id="descriptionLibrary" placeholder="Description de Library">
             </div>
             <div class="form-group">
-                <label for="category"><strong>Seleccione Categoría</strong></label><br>
+                <label id="libraryCategory" for="category"><strong>Seleccione Categoría</strong></label><br>
                 <select id="category">
                     <option value="1" selected>Categoría</option>
                 </select>
@@ -51,7 +52,7 @@
         <br><br>
         <div class="row">
             <div class="col-md-9">
-                <h3>Lista de Cubículos </h3>
+                <div id="libraryTitle2"><h3> Lista de Cubículos </h3></div>
                 <table class="table table-condensed table-bordered table-hover">
                     <thead>
                     <tr class="info table-success">

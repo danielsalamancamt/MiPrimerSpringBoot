@@ -1,0 +1,109 @@
+#indexFond{
+    background-image: url('https://i.postimg.cc/L2SdXxnN/fondo-Index.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#libraryFond{
+    background-image: url('https://p1.pxfuel.com/preview/531/62/361/library-books-knowledge-bookstore.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#clientFond{
+    background-image: url('https://img.lalr.co/cms/2019/07/29233645/como-son-relaciones-clientes-empleados-sociedad-empresas-espanolas-471x250.png?size=xl');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#messagesFond{
+    background-image: url('https://i.postimg.cc/3rXjrP1T/message-Fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#categoryFond{
+    background-image: url('https://i.postimg.cc/zG8qZRBN/category-Fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#reservationFond{
+    background-image: url('https://i.postimg.cc/W4SyFdTM/reservarion-Fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#scoreFond{
+    background-image: url('https://i.postimg.cc/BQQXHyTH/score-Fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+#adminFond{
+    background-image: url('https://i.postimg.cc/rygpVJBm/admin-Fond.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 115%;
+    font-family: 'Numans', sans-serif;
+}
+
+#libraryId,#libraryName,#libraryTarget,
+#libraryCapacity,#libraryDescription,
+#libraryCategory,#libraryTitle1,#libraryTitle2{
+    color: rgb(0, 0, 0);
+    backdrop-filter: grayscale(100%);
+    backdrop-filter: contrast(50%);
+}
+
+#reservationTitle{
+    color: rgb(0, 0, 0);
+    backdrop-filter: grayscale(100%);
+    backdrop-filter: contrast(50%);
+}
+#login {
+    background-color: rgb(36, 12, 138);
+    margin-left: auto;
+    margin-right: auto;
+    width: 25rem;
+}
+#userZone {
+    display:none;
+    background-color: rgb(33, 125, 48);
+    margin: 0 0 1rem;
+    height: 72px;
+    display: flex;
+    align-items: start;
+}
+#user{
+    background-color: rgb(33, 125, 48);
+    max-width: 500rem;
+    width: 350px;
+    height: 72px;
+}
+#user-body{
+    height: 10rem;
+}
+.container{
+    height: 100%;
+    align-content: center;
+}
+.card{
+    background-color: rgb(33, 125, 48);
+}
+.card-title{
+    color: rgb(255, 255, 255);
+}
+.card-text{
+    color: rgb(255, 255, 255);
+}
+#Title1, #Title2{
+    color: rgb(255, 255, 255);
+}
