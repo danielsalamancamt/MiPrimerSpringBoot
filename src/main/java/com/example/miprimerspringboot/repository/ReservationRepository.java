@@ -23,4 +23,7 @@ public class ReservationRepository {
     public Optional<Reservation> getById(int id){
         return reservationCRUDRepository.findById(id);
     }
+    public void delete(Reservation c){
+        reservationCRUDRepository.delete(c);
+    }
 }

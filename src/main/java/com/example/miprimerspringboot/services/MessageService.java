@@ -16,9 +16,33 @@ public class MessageService {
     public List<Message> getAll(){return messageRepository.getAll();}
 
     public Message save(Message c){
-        return messageRepository.save(c);
+        if(c.getIdMessage()==null){
+            return messageRepository.save(c);
+        }
+        return c;
     }
     public Optional<Message> getById(int id){
         return messageRepository.getById(id);
+    }
+    public Message update(Message c){
+        if(c.getIdMessage()!=null){
+            Optional<Message> old= messageRepository.getById(c.getIdMessage());
+            if(old.isPresent()){
+                Message k=old.get();
+                if(c.getMessageText()!=null){
+                    k.setMessageText(c.getMessageText());
+                }
+                return messageRepository.save(k);
+            }
+        }
+        return c;
+    }
+    public boolean delete(int id){
+        Optional<Message> cOp= messageRepository.getById(id);
+        if(cOp.isPresent()){
+            messageRepository.delete(cOp.get());
+            return true;
+        }
+        return false;
     }
 }

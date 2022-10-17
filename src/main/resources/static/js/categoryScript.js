@@ -69,10 +69,10 @@ function cleanInputs(){
 
 function saveCategory(){
     let data=getCategoryInfo();
+    data.id=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
-
     $.ajax({
         url : 'api/Category/save',
         type : 'POST',
@@ -92,7 +92,7 @@ function deleteCategory(idCategory){
     let data={id:idCategory};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : "",
+        url : "api/Category/"+idCategory,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -113,7 +113,7 @@ function updateCategory(){
     console.log(dataToSend);
 
     $.ajax({
-        url : "",
+        url : "api/Category/update",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

@@ -23,4 +23,7 @@ public class ClientRepository {
     public Optional<Client> getById(int id){
         return clientCRUDRepository.findById(id);
     }
+    public void delete(Client c){
+        clientCRUDRepository.delete(c);
+    }
 }

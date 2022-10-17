@@ -1,4 +1,3 @@
-let myURLClient='';
 
 $("document").ready(function (){
     paintLibrarys();
@@ -55,6 +54,7 @@ function cleanInputs(){
 
 function saveMessage(){
     let data=getMessageInfo();
+    data.idMessage=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
@@ -78,7 +78,7 @@ function deleteMessage(idMessage){
     let data={id:idMessage};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : "api/Message/"+idMessage,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -99,7 +99,7 @@ function updateMessage(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : "api/Message/update",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

@@ -23,4 +23,7 @@ public class CategoryRepository {
     public Optional<Category> getById(int id){
         return categoryCRUDRepository.findById(id);
     }
+    public void delete(Category c){
+        categoryCRUDRepository.delete(c);
+    }
 }

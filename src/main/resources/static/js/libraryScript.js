@@ -80,6 +80,7 @@ function cleanInputs(){
 
 function saveLibrary(){
     let data=getLibraryInfo();
+    data.id=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
@@ -103,7 +104,7 @@ function deleteLibrary(idLibrary){
     let data={id:idLibrary};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : "",
+        url : "api/Lib/"+idLibrary,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -124,7 +125,7 @@ function updateLibrary(){
     console.log(dataToSend);
 
     $.ajax({
-        url : "",
+        url : "api/Lib/update",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

@@ -1,4 +1,3 @@
-let myURLClient='';
 
 $("document").ready(function (){
     paintReservations();
@@ -36,7 +35,7 @@ function getScoreInfo(){
     let messageTextScore=$("#messageTextScore").val();
 
     let score={
-        id:idScore,
+        idScore:idScore,
         score:scoreScore,
         messageText:messageTextScore,
         reservation:{
@@ -54,10 +53,10 @@ function cleanInputs(){
 
 function saveScore(){
     let data=getScoreInfo();
+    data.idScore=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
-
     $.ajax({
         url : 'api/Score/save',
         type : 'POST',
@@ -77,7 +76,7 @@ function deleteScore(idScore){
     let data={id:idScore};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : 'api/Score/'+idScore,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -98,7 +97,7 @@ function updateScore(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : 'api/Score/update',
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

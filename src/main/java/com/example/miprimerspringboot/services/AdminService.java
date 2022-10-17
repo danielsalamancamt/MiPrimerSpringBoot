@@ -16,9 +16,39 @@ public class AdminService {
     public List<Admin> getAll(){return adminRepository.getAll();}
 
     public Admin save(Admin c){
-        return adminRepository.save(c);
+        if(c.getIdAdmin()==null){
+            return adminRepository.save(c);
+        }
+        return c;
     }
     public Optional<Admin> getById(int id){
         return adminRepository.getById(id);
+    }
+    public Admin update(Admin c){
+        if(c.getIdAdmin()!=null){
+            Optional<Admin> old= adminRepository.getById(c.getIdAdmin());
+            if(old.isPresent()){
+                Admin k=old.get();
+                if(c.getName()!=null){
+                    k.setName(c.getName());
+                }
+                if(c.getEmail()!=null){
+                    k.setEmail(c.getEmail());
+                }
+                if(c.getPassword()!=null){
+                    k.setPassword(c.getPassword());
+                }
+                return adminRepository.save(k);
+            }
+        }
+        return c;
+    }
+    public boolean delete(int id){
+        Optional<Admin> cOp= adminRepository.getById(id);
+        if(cOp.isPresent()){
+            adminRepository.delete(cOp.get());
+            return true;
+        }
+        return false;
     }
 }

@@ -23,4 +23,7 @@ public class ScoreRepository {
     public Optional<Score> getById(int id){
         return scoreCRUDRepository.findById(id);
     }
+    public void delete(Score c){
+        scoreCRUDRepository.delete(c);
+    }
 }

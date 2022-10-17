@@ -23,4 +23,7 @@ public class AdminRepository {
     public Optional<Admin> getById(int id){
         return adminCRUDRepository.findById(id);
     }
+    public void delete(Admin c){
+        adminCRUDRepository.delete(c);
+    }
 }

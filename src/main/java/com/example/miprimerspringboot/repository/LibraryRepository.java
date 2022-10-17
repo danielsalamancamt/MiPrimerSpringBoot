@@ -23,4 +23,7 @@ public class LibraryRepository {
     public Optional<Library> getById(int id){
         return libraryCRUDRepository.findById(id);
     }
+    public void delete(Library c){
+        libraryCRUDRepository.delete(c);
+    }
 }

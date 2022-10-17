@@ -1,8 +1,3 @@
-let myURLClient='';
-
-/*$("document").ready(function (){
-    getClients();
-});*/
 
 function getAdmins(){
     $.ajax({
@@ -36,7 +31,7 @@ function getAdminInfo(){
     let passwordAdmin=$("#passwordAdmin").val();
 
     let admin={
-        id:idAdmin,
+        idAdmin:idAdmin,
         name:nameAdmin,
         email:emailAdmin,
         password:passwordAdmin
@@ -53,6 +48,7 @@ function cleanInputs(){
 
 function saveAdmin(){
     let data=getAdminInfo();
+    data.idAdmin=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
@@ -76,7 +72,7 @@ function deleteAdmin(idAdmin){
     let data={id:idAdmin};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : myURLClient,
+        url : 'api/Admin/'+idAdmin,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -97,7 +93,7 @@ function updateAdmin(){
     console.log(dataToSend);
 
     $.ajax({
-        url : myURLClient,
+        url : 'api/Admin/update',
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

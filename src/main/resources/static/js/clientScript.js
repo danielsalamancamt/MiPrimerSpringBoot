@@ -1,8 +1,4 @@
 
-/*$("document").ready(function (){
-    getClients();
-});*/
-
 function paintClients(){
     $.ajax({
         url : 'api/Client/all',
@@ -57,7 +53,7 @@ function getClientInfo(){
     let passwordClient=$("#passwordClient").val();
 
     let client={
-        id:idClient,
+        idClient:idClient,
         name:nameClient,
         email:emailClient,
         age:ageClient,
@@ -76,10 +72,10 @@ function cleanInputs(){
 
 function saveClient(){
     let data=getClientInfo();
+    data.idClient=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
-
     $.ajax({
         url : 'api/Client/save',
         type : 'POST',
@@ -99,7 +95,7 @@ function deleteClient(idClient){
     let data={id:idClient};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : "",
+        url : "api/Client/"+idClient,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -120,7 +116,7 @@ function updateClient(){
     console.log(dataToSend);
 
     $.ajax({
-        url : "",
+        url : "api/Client/update",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,

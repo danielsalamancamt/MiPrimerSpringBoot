@@ -23,4 +23,7 @@ public class MessageRepository {
     public Optional<Message> getById(int id){
         return messageCRUDRepository.findById(id);
     }
+    public void delete(Message c){
+        messageCRUDRepository.delete(c);
+    }
 }

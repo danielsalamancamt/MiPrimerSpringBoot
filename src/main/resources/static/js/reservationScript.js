@@ -1,8 +1,6 @@
 
 $("document").ready(function (){
     paintClients();
-});
-$("document").ready(function (){
     paintLibrarys();
 });
 
@@ -86,6 +84,7 @@ function cleanInputs(){
 
 function saveReservation(){
     let data=getReservationInfo();
+    data.idReservation=null;
     let dataToSend=JSON.stringify(data);
     console.log(data);
     console.log(dataToSend);
@@ -109,7 +108,7 @@ function deleteReservation(idReservation){
     let data={id:idReservation};
     let dataToSend=JSON.stringify(data);
     $.ajax({
-        url : "",
+        url : "api/Reservation/"+idReservation,
         type : 'DELETE',
         contentType : 'application/json',
         data:dataToSend,
@@ -130,7 +129,7 @@ function updateReservation(){
     console.log(dataToSend);
 
     $.ajax({
-        url : "",
+        url : "api/Reservation/update",
         type : 'PUT',
         contentType : 'application/json',
         data:dataToSend,
