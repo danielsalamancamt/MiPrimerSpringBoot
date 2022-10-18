@@ -1,5 +1,7 @@
 package com.example.miprimerspringboot.controller;
 
+import com.example.miprimerspringboot.entidades.dto.StatusAccount;
+import com.example.miprimerspringboot.entidades.dto.TopClients;
 import com.example.miprimerspringboot.entidades.Reservation;
 import com.example.miprimerspringboot.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,18 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
         return reservationService.delete(id);
+    }
+
+    @GetMapping("/report-dates/{dateA}/{dateB}")
+    public List<Reservation> getByDates(@PathVariable("dateA")String da,@PathVariable("dateB")String db ){
+        return reservationService.getReservationsByPeriod(da,db);
+    }
+    @GetMapping("/report-status")
+    public StatusAccount getByStatus(){
+        return reservationService.getReportByStatus();
+    }
+    @GetMapping("/report-clients")
+    public List<TopClients> getTopClients(){
+        return reservationService.getTopclients();
     }
 }
